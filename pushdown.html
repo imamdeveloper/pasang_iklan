@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var images = [],
+			index = 0;
+
+			images[0] = "<a href = 'https://www.imamdeveloper.my.id/pasang-iklan/?utm_source=pushdown_banner&utm_medium=320x480&utm_content=klik_banner' target='_blank'><img src='https://blogger.googleusercontent.com/img/a/AVvXsEjfdNk4oQH-be9sw4YA8qjEkBLKO7ut-fzwncjBIOfZeRBrnIDTjxQt3TeC_lFiNSt_hZquRfDjOiS-VK5x1H1knKHbojAz2XZ16W1B1aDxFpYaRF9B_zQs5NL3iHGblG_h8T8qE636-kAFnJa2lW_sZCpkoFcFJARKYf52OIZdIdYD-ajgJs_AfiBtKDA7' alt='pasang iklan'></a>";
+
+			let currentDate = new Date();
+			let tgl = currentDate.getDate();
+			let bulan = currentDate.getMonth() + 1;
+			let thn = currentDate.getFullYear();
+			let sekarang = bulan + "/" + tgl + "/" + thn;
+
+			var liftdown_index = localStorage.getItem('liftdown_index')
+			if (liftdown_index) {
+				if (liftdown_index < (images.length-1)) {
+					liftdown_index++
+				} else {
+					liftdown_index = 0
+				}
+				index = liftdown_index
+			} else {
+				index = Math.floor(Math.random() * images.length);
+			}
+			localStorage.setItem('liftdown_index', index)
+			document.write(images[index]);
+		</script>
+	</body>
+</html>
